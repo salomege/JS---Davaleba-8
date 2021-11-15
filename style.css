@@ -1,0 +1,93 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.slider{
+    width:100%;
+    height:600px;
+    margin:0 auto;
+    position: relative;
+    overflow: hidden;
+}
+.slide-area{
+    height: 100%;
+}
+.slide-area div{
+    width:100%;
+    height: 100%;
+    position: absolute;
+    transition: all 1s;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.slider span{
+    height: 50px;
+    position: absolute;
+    top:50%;
+    margin:-25px 0 0 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    color:#fff;
+    line-height: 50px;
+    text-align: center;
+    cursor: pointer;
+}
+.title{
+    top:80% !important;
+    font-size: 30px;
+    font-weight: 800;
+    text-align: center;
+    cursor: auto !important;
+    padding: 0 20px;
+}
+.slide-area{
+    font-size: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #fff;
+}
+#prev{
+    left:0;
+    border-radius: 0 10px 10px 0;
+}
+#next{
+    right:0;
+    border-radius:10px 0 0 10px;
+}
+#prev svg,#next svg{
+    width:100%;
+    fill: #fff;
+}
+#next svg {
+  transform: rotate(-180deg);
+}
+#prev:hover,
+#next:hover{
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+#clock {
+    font-size: 100px;
+    width: 500px;
+    margin: 50px;
+    text-align: center;
+    border: 2px solid black;
+    border-radius: 20px;
+    color: cornflowerblue;
+    background-color: black;
+}
+
+.dots {
+    display: flex;
+    margin-top: 100px;
+    margin-bottom: 50px;
+  }
+  
+  #dot1, #dot2, #dot3, #dot4 {
+    width: 20px;
+    height: 20px;
+    background-color:rgb(202, 199, 199);(147, 151, 249);
+    border-radius: 50%;
+    margin: 0px 5px;
+    cursor: pointer;
+  }
