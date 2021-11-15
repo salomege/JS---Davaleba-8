@@ -200,22 +200,34 @@ function modal(modalId) {
     // ეს დატა უნდა შეივსოს ფორმში formManager აქვს ახალი შესაძლებლობა formManager.setFields(userObject)
     // ეს ფუნქცია გამოიძახე და გადაეცი user-ის დატა
 
-    const tableRows = document.querySelectorAll(`tr`)
-    const tableArray = Array.from(tableRows)
-    tableArray.shift()
-    tableArray.forEach((array,index) => {
-      const editBtn = document.createElement(`button`)
-      const dltBtn = document.createElement(`button`)
-      const id = array.className.replace(/\D/g,'');
-      editBtn.innerText = `Edit`
-      dltBtn.innerText = `Delete`
-      editBtn.setAttribute(`data-user-id`, `${id}`)
-      editBtn.addEventListener(`click`, () => editUser(id))
-      dltBtn.setAttribute(`data-user-id`, `${id}`)
-      dltBtn.addEventListener(`click`, () => deleteUser(id))
-      tableRows[index+1].appendChild(editBtn)
-      tableRows[index+1].appendChild(dltBtn)
-    })
-  }
-  
-//  
+    async function createUser(userData){
+        try {
+          const response = await fetch('http://api.kesho.me/v1/user-test/create', {
+            method: 'post',
+            body: JSON.stringify(userData),
+            headers: {'Content-Type': 'application/json'}
+          });
+          await response.json();
+          getUsers(); 
+        }catch (e){
+          console.log('ERROR!', e);
+        }
+      }
+      
+      
+      // Add event listeners for modal open/close buttons
+      openModalBtn.addEventListener('click', openModal);
+      
+      function openModal() {
+        mainModal.style.display = "block";
+      }
+      
+      closeModalBtn.addEventListener('click', closeModal);
+      
+      function closeModal() {
+        if(mainModal.style.display == "block") {
+          mainModal.style.display = "none";
+        } else {
+          mainModal.style.display = "block";
+        }
+      }
